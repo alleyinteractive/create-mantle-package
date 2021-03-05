@@ -7,7 +7,7 @@
 
 namespace Create_Mantle_Package;
 
-use function Mantle\Framework\generate_wp_autoloader;
+use function Mantle\generate_wp_autoloader;
 
 spl_autoload_register(
 	generate_wp_autoloader( __NAMESPACE__, __DIR__ )
