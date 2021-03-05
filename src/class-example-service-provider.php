@@ -7,7 +7,7 @@
 
 namespace Create_Mantle_Package;
 
-use Mantle\Framework\Service_Provider;
+use Mantle\Support\Service_Provider;
 
 /**
  * Example Service Provider
