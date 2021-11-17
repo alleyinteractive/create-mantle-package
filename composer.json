@@ -4,7 +4,7 @@
     "license": "GPL-2.0-or-later",
     "authors": [],
     "require": {
-        "php": "^7.4",
+        "php": "^7.4 || ^8.0",
         "alleyinteractive/mantle-framework": "dev-remove-bin-install"
     },
     "require-dev": {
