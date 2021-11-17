@@ -5,4 +5,4 @@
 
 namespace Create_Mantle_Package\Tests;
 
-\Mantle\Framework\Testing\install();
+\Mantle\Testing\install();
