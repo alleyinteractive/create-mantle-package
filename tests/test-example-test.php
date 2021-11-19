@@ -1,7 +1,7 @@
 <?php
 namespace Create_Mantle_Package\Tests;
 
-use Mantle\Framework\Testing\Framework_Test_Case;
+use Mantle\Testing\Framework_Test_Case;
 
 class Test_Example_Test extends Framework_Test_Case {
 	public function test_example_test() {
