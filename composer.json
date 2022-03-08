@@ -5,6 +5,7 @@
     "authors": [],
     "require": {
         "php": "^7.4 || ^8.0",
+        "alleyinteractive/composer-wordpress-autoloader": "^0.2",
         "alleyinteractive/mantle-framework": "dev-main"
     },
     "require-dev": {
@@ -13,23 +14,39 @@
         "phpunit/phpunit": "^8.5.8 || ^9.3.3"
     },
     "config": {
+        "allow-plugins": {
+            "alleyinteractive/composer-wordpress-autoloader": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
         "sort-packages": true
     },
     "extra": {
         "mantle": {
             "aliases": [],
             "providers": []
+        },
+        "wordpress-autoloader": {
+            "autoload": {
+                "Create_Mantle_Package\\": "src/"
+            },
+            "autoload-dev": {
+                "Create_Mantle_Package\\Tests": "tests/"
+            }
         }
     },
     "autoload": {
         "files": [
-            "src/autoload.php"
+            "vendor/wordpress-autoload.php"
         ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "phpcs": "phpcs --standard=./phpcs.xml .",
-        "phpunit": "phpunit"
+        "phpunit": "phpunit",
+        "test": [
+          "@phpcs",
+          "@phpunit"
+        ]
     }
 }
