@@ -34,11 +34,6 @@
             }
         }
     },
-    "autoload": {
-        "files": [
-            "vendor/wordpress-autoload.php"
-        ]
-    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
