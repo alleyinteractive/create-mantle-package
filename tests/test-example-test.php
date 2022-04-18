@@ -3,7 +3,7 @@ namespace Create_Mantle_Package\Tests;
 
 use Mantle\Testkit\Test_Case;
 
-class Test_Example_Test extends TestCase {
+class Test_Example_Test extends Test_Case {
 	public function test_example_test() {
 		$this->assertTrue( class_exists( \Create_Mantle_Package\Example_Service_Provider::class ) );
 	}
