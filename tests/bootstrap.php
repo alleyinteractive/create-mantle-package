@@ -1,10 +1,13 @@
 <?php
 /**
- * Testing using Mantle Framework
+ * Create Mantle Package Tests: Bootstrap
+ *
+ * @package create-mantle-package
  */
 
-namespace Create_Mantle_Package\Tests;
+declare(strict_types=1);
 
-require_once __DIR__ . '/../vendor/wordpress-autoload.php';
-
-\Mantle\Testing\install();
+/**
+ * Visit {@see https://mantle.alley.com/testing/test-framework.html} to learn more.
+ */
+\Mantle\Testing\manager()->install();
