@@ -35,5 +35,5 @@ composer lint:fix  # apply rector and phpcbf fixes
 ```
 
 Tests use the [Mantle Testkit](https://mantle.alley.com/docs/testing/testkit).
-They install WordPress against MySQL by default; set `MANTLE_USE_SQLITE=true`
-to run them without a database server.
+They run against SQLite by default, so no database server is needed. Remove
+`MANTLE_USE_SQLITE` from `phpunit.xml` to run them against MySQL instead.
