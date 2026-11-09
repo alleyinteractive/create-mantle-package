@@ -1,22 +1,32 @@
 {
     "name": "alleyinteractive/create-mantle-package",
     "description": "Generic Mantle Package",
+    "type": "library",
     "license": "GPL-2.0-or-later",
     "authors": [],
     "require": {
-        "php": "^7.4 || ^8.0",
-        "alleyinteractive/composer-wordpress-autoloader": "^0.4",
-        "mantle-framework/support": "^0.1"
-      },
-      "require-dev": {
-        "alleyinteractive/alley-coding-standards": "^0.3",
-        "mantle-framework/testkit": "^0.1",
-        "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "php": "^8.3",
+        "mantle-framework/support": "^1.22"
+    },
+    "require-dev": {
+        "alleyinteractive/alley-coding-standards": "^2.6",
+        "mantle-framework/testkit": "^1.22",
+        "mantle-framework/types": "^1.22",
+        "rector/rector": "^2.0",
+        "szepeviktor/phpstan-wordpress": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Create_Mantle_Package\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Create_Mantle_Package\\Tests\\": "tests/"
+        }
     },
     "config": {
         "allow-plugins": {
-            "alleyinteractive/composer-wordpress-autoloader": true,
             "dealerdirect/phpcodesniffer-composer-installer": true
         },
         "sort-packages": true
@@ -24,25 +34,32 @@
     "extra": {
         "mantle": {
             "aliases": [],
-            "providers": []
-        },
-        "wordpress-autoloader": {
-            "autoload": {
-                "Create_Mantle_Package\\": "src/"
-            },
-            "autoload-dev": {
-                "Create_Mantle_Package\\Tests": "tests/"
-            }
+            "providers": [
+                "Create_Mantle_Package\\Example_Service_Provider"
+            ]
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "phpcs": "phpcs --standard=./phpcs.xml .",
+        "lint": [
+            "@phpcs",
+            "@phpstan",
+            "@rector"
+        ],
+        "lint:fix": [
+            "@rector:fix",
+            "@phpcbf"
+        ],
+        "phpcbf": "phpcbf .",
+        "phpcs": "phpcs .",
+        "phpstan": "phpstan --memory-limit=512M",
         "phpunit": "phpunit",
+        "rector": "rector process --dry-run",
+        "rector:fix": "rector process",
         "test": [
-          "@phpcs",
-          "@phpunit"
+            "@lint",
+            "@phpunit"
         ]
     }
 }
