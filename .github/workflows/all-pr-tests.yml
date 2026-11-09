@@ -1,9 +1,6 @@
 name: "All Pull Request Tests"
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
